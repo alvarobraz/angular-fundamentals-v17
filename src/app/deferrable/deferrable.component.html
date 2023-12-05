@@ -1,6 +1,7 @@
 <p>deferrable works!</p>
-
-@defer () {
+<!-- on idle é default -->
+<h2>On idle é default</h2>
+@defer (on idle) {
   <app-first-component></app-first-component>
 } @placeholder {
   <p>Mostra algo antes de carregar!</p>
@@ -9,4 +10,104 @@
 } @error {
   <p>Erro ao carregar!</p>
 }
+<br>
+<br>
 
+<!-- on timer espera o tempoe estimado -->
+<h2>On timer espera o tempoe estimado (5s)</h2>
+@defer (on timer(5s)) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+
+<!-- on viewport aguarda posição da tela para ser carregada, bom apara landing pages -->
+<h2 style="margin-bottom: 0px;">On  viewport aguarda posição da tela para ser carregada</h2>
+@defer (on viewport) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+
+<!-- on interaction ao clicar carrega o componente-->
+<h2 #interacao >On interaction ao clicar carrega o componente</h2>
+@defer (on interaction(interacao)) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+
+<!-- on hover ao passar o mouse em cima carrega o componente-->
+<h2 #mouseHover >On hover ao passar o mouse em cima carrega o componente</h2>
+@defer (on hover(mouseHover)) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+
+<!-- on immediate carrega imediante o componente-->
+<h2>On immediate carrega imediante o componente</h2>
+@defer (on immediate) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+
+<h2 #interacao >On interaction carrega o prefetch do componnete ao clicar na interção</h2>
+@defer (on interaction(interacao2); prefetch on interaction(interacao)) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p #interacao2>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+
+<br>
+<br>
+
+<h2 #interacao3 >Variações de on, o que for invocado antes funciona</h2>
+@defer (on timer(5s); on interaction(interacao3);) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
