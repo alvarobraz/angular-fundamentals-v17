@@ -111,3 +111,39 @@
 }
 <br>
 <br>
+
+<h2>when pega o retorno se verdadeiro</h2>
+<button (click)="carregar()">Carregar</button>
+@defer (when isTrue) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+@defer (when isTrue) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
+@defer (when users$ | async) {
+  <app-first-component></app-first-component>
+} @placeholder {
+  <p>Mostra algo antes de carregar!</p>
+} @loading {
+  <p>carregando...</p>
+} @error {
+  <p>Erro ao carregar!</p>
+}
+<br>
+<br>
